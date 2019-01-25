@@ -1,0 +1,25 @@
+@import "compass/css3";
+
+@import "../assets/scss/variables.scss";
+@import "../assets/scss/typography.scss";
+@import "~bootstrap/scss/bootstrap";
+@import "~bootstrap-vue/dist/bootstrap-vue.css";
+@import "../assets/scss/font-awesome/font-awesome.scss";
+
+@import "breakpoints/base";
+
+/*@media (min-width: $screen-xs-min) {
+	@import "breakpoints/screen-xs";
+}*/
+
+@media (min-width: 576px) {
+	@import "breakpoints/screen-sm";
+}
+
+@media (min-width: 768px) {
+	@import "breakpoints/screen-md";
+}
+
+/*@media (min-width: $screen-lg-min) {
+	@import "breakpoints/screen-lg";
+}*/

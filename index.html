@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>gdp</title>
+		<meta name="theme-color" content="#ffffff">
+		<link rel="icon" type="image/png" sizes="32x32" href="<%= htmlWebpackPlugin.files.publicPath %>static/img/icons/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="<%= htmlWebpackPlugin.files.publicPath %>static/img/icons/favicon-16x16.png">
+		<!--[if IE]><link rel="shortcut icon" href="/static/img/icons/favicon.ico"><![endif]-->
+		<link rel="manifest" href="<%= htmlWebpackPlugin.files.publicPath %>static/img/icons/manifest.json">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-title" content="gdp">
+		<link rel="apple-touch-icon" sizes="180x180" href="<%= htmlWebpackPlugin.files.publicPath %>static/img/icons/apple-touch-icon.png">
+		<link rel="mask-icon" href="<%= htmlWebpackPlugin.files.publicPath %>static/img/icons/safari-pinned-tab.svg" color="#5bbad5">
+		<meta name="msapplication-TileImage" content="<%= htmlWebpackPlugin.files.publicPath %>static/img/icons/mstile-150x150.png">
+		<meta name="msapplication-TileColor" content="#ffffff">
+		<% for (var chunk of webpack.chunks) {
+				for (var file of chunk.files) {
+					if (file.match(/\.(js|css)$/)) { %>
+		<link rel="<%= chunk.initial?'preload':'prefetch' %>" href="<%= htmlWebpackPlugin.files.publicPath + file %>" as="<%= file.match(/\.css$/)?'style':'script' %>">
+		<% }}} %>
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-111661947-1"></script>
+	</head>
+	<body>
+		<noscript>
+		</noscript>
+		<div id="root"></div>
+		<!-- only include in production -->
+		<%= htmlWebpackPlugin.options.serviceWorkerLoader %>
+	</body>
+</html>
